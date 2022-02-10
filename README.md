@@ -1,52 +1,44 @@
 # CSS 410 Research tools and methods
 ## Team members
-+ **Jet Lee** (*180100012*)- Backend Developer (GitHub account: *jetlee*)
-+ **Jacky Chan** (*180100013*) - Frontend Developer (GitHub account: *jackychan*)
++ **Abu Said Manap** (*180103223*)- Backend Developer (GitHub account: *Abunyawa*)
++ **Adilkhan Nurgaliyev** (*180103282*) - Frontend Developer (GitHub account: *khan177*)
++ **Aizat Bissen** (*180103301*) -  UX/UI designer (GitHub account: *aizatbissen*)
 
 ## Project
-This project is yet-another clone of Instagram
+Coming soon
 
 ## Alternatives / Market research
-| Research alternatives
+Coming soon
 
 ## Goals
+Coming soon
 
 ## Technologies
-In our project we use **Laravel**, **VueJS**
+Coming soon
 
 ## Pages / Activities 
-We will have following pages:
-- Latest posts of friends
-- Posts from location of user
-- Take a photo page
-- Personal page
-- Settings page
+Coming soon
 
-## Goals
-* What is the purpose of this project?
-* What are the problems it will solve?
-* How will it streamline or improve the current process or facilitate a new process?
-* What is the product vision?
+## Goals 
+Coming soon
 
-## User Personas
-*Write description of user personas here*  
+## User Personas 
+Coming soon
 
 ## User stories
+Coming soon
 
-*Write your user stories here*
+## Sitemap, Page descriptions 
+Coming soon
 
-## Sitemap, Page descriptions
+## Non-Functional requirements 
+Coming soon
 
-*Display sitemap here*
+## Risks 
+Coming soon
 
-## Non-Functional requirements
-*Write non-functional requirements*
+## Mockups, Wireframes 
+Coming soon
 
-## Risks
-*What are the risks?*
-
-## Mockups, Wireframes
-*Put here images of your wireframes*
-
-## Future iterations
-*Write your future iterations*
+## Future iterations 
+Coming soon

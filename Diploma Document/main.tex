@@ -1,0 +1,56 @@
+\documentclass[a4paper,14pt]{extreport}
+
+% packages to support Cyrillic fonts, needed to write abstracts
+\usepackage[T2A]{fontenc} 
+\usepackage[utf8]{inputenc} 
+\usepackage[russian,english]{babel}
+\usepackage{csquotes}
+
+% usual packages
+\usepackage[left=30mm, right=10mm, top=20mm, bottom=20mm]{geometry}
+
+\usepackage{graphicx} % to add figures
+\graphicspath{{figures/}}
+
+\usepackage{hyperref} % to add clickable contents menu
+
+\usepackage[style=numeric]{biblatex}
+\addbibresource{bibliography.bib}
+
+\usepackage{blindtext}
+
+% the following three definitions are to be changed by student
+\def\myauthor{Gennady Golovkin} % author
+\def\mycoach{Abel Sanchez} % coach, adviser etc.
+\def\mytitle{Knockoutization of Arrogant Opponents by Nearest Neighbour Punching Algorithm} % title
+%\def\mydegree{Bachelor in Computer Systems and Software}
+%\def\mydegreecode{5B070400}
+\def\mydegree{Bachelor in Information Systems}
+\def\mydegreecode{5B070300}
+
+% preamble ends here
+
+\begin{document}
+    % don't touch these two lines :)
+    \input{titlepage1}
+    \input{titlepage2}
+    
+    % edit abstracts
+    \input{abstract_english}
+    \input{abstract_kazakh}
+    \input{abstract_russian}
+    \tableofcontents
+    
+    % edit your chapters
+    \input{introduction}
+    \input{chapterA}
+    \input{chapterB}
+    \input{chapterC}
+    \input{conclusion}
+    
+    \appendix
+    \input{appendixA}
+    \input{appendixB}
+
+    \printbibliography[heading=bibintoc,title={References}]
+\end{document}

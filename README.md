@@ -5,13 +5,13 @@
 + **Aizat Bissen** (*180103301*) -  UX/UI designer (GitHub account: *aizatbissen*)
 
 ## Project
-Coming soon
+Multiplayer maze game
 
 ## Alternatives / Market research
 Coming soon
 
 ## Goals
-Coming soon
+Create a game where players can compete with each other
 
 ## Technologies
 Coming soon

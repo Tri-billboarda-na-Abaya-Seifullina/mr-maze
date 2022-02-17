@@ -19,9 +19,6 @@ Coming soon
 ## Pages / Activities 
 Coming soon
 
-## Goals 
-Coming soon
-
 ## User Personas 
 Coming soon
 

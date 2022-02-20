@@ -5,53 +5,53 @@
 + **Aizat Bissen** (*180103301*) -  UX/UI designer (GitHub account: *aizatbissen*)
 
 ## Project
-Multiplayer maze game "Mr. Maze"\\n
+Multiplayer maze game "Mr. Maze"\\
 
 ## Alternatives / Market research
-There are no any popular analogues\\n
+There are no any popular analogues\\
 
 ## Goals
-Create a game where players can compete with each other\\n
+Create a game where players can compete with each other\\
 
 ## Technologies
-Languages: JS, Golang\\n
-Framework: React.js, Gin\\n
-Design: Figma\\n
-Management: Jira, Confluence, Scrum\\n
+Languages: JS, Golang\\
+Framework: React.js, Gin\\
+Design: Figma\\
+Management: Jira, Confluence, Scrum\\
 
 ## Pages / Activities 
-Authorization page\\n
-Admin page\\n
-Profile page\\n
-Game page\\n
+Authorization page\\
+Admin page\\
+Profile page\\
+Game page\\
 
 ## User Personas 
-Everybody with free time and love to solve puzzles\\n
+Everybody with free time and love to solve puzzles\\
 
 ## User stories
-As a player I want to be able to play with friends\\n
-As a player I want to play new levels with different difficulty levels\\n
-As a player I want to see the global rating\\n
+As a player I want to be able to play with friends\\
+As a player I want to play new levels with different difficulty levels\\
+As a player I want to see the global rating\\
 
 ## Sitemap, Page descriptions 
 ![sitemap](sitemap.png)
 
 ## Non-Functional requirements 
-Scalability\\n
-Capacity\\n
-Availability\\n
-Reliability\\n
-Recoverability\\n
-Maintainability\\n
-Serviceability\\n
+Scalability\\
+Capacity\\
+Availability\\
+Reliability\\
+Recoverability\\
+Maintainability\\
+Serviceability\\
 
 ## Risks 
-Users might get bored\\n
-Cheap hostings might not be able to handle high load\\n
-It might be hard to maintain project\\n
+Users might get bored\\
+Cheap hostings might not be able to handle high load\\
+It might be hard to maintain project\\
 
 ## Mockups, Wireframes 
-In progress...\\n
+In progress...\\
 
 ## Future iterations 
-Maintenance and adding features according to user desires\\n
+Maintenance and adding features according to user desires\\

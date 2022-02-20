@@ -5,37 +5,53 @@
 + **Aizat Bissen** (*180103301*) -  UX/UI designer (GitHub account: *aizatbissen*)
 
 ## Project
-Multiplayer maze game
+Multiplayer maze game "Mr. Maze"
 
 ## Alternatives / Market research
-Coming soon
+There are no any popular analogues
 
 ## Goals
 Create a game where players can compete with each other
 
 ## Technologies
-Coming soon
+Languages: JS, Golang
+Framework: React.js, Gin
+Design: Figma
+Management: Jira, Confluence, Scrum
 
 ## Pages / Activities 
-Coming soon
+Authorization page
+Admin page
+Profile page
+Game page
 
 ## User Personas 
-Coming soon
+Everybody with free time and love to solve puzzles
 
 ## User stories
-Coming soon
+As a player I want to be able to play woth friends
+As a player I want to play new levels with different difficulty levels
+As a player I want to see the global rating
 
 ## Sitemap, Page descriptions 
-Coming soon
+![sitemap](sitemap.png)
 
 ## Non-Functional requirements 
-Coming soon
+Scalability
+Capacity
+Availability
+Reliability
+Recoverability
+Maintainability
+Serviceability
 
 ## Risks 
-Coming soon
+Users might get bored
+Cheap hostings might not be able to handle high load
+It might be hard to maintain project
 
 ## Mockups, Wireframes 
-Coming soon
+In progress...
 
 ## Future iterations 
-Coming soon
+Maintenance and adding features according to user desires

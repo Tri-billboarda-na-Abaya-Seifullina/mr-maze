@@ -1,6 +1,6 @@
-# Jet Lee
-* Made kung-fu
-* Learned kung-fu
+# Abu Said Manap
+* Develop a user information microservice
+* Documentation
 # Jacky Chan
 * Learn kung-fu
 * Invented kung-fu

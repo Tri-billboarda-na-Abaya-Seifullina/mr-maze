@@ -1,6 +1,6 @@
-# Jet Lee
-* Made kung-fu
-* Learned kung-fu
+# Abu Said Manap
+* Maze generation research
+* Documentation
 # Jacky Chan
 * Learn kung-fu
 * Invented kung-fu

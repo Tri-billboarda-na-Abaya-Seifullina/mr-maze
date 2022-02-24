@@ -1,6 +1,5 @@
-# Jet Lee
-* Made kung-fu
-* Learned kung-fu
+# Abu Said Manap
+* Research paper editing
 # Jacky Chan
 * Learn kung-fu
 * Invented kung-fu

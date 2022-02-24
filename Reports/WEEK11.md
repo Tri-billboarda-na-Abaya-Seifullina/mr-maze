@@ -1,6 +1,7 @@
-# Jet Lee
-* Made kung-fu
-* Learned kung-fu
+# Abu Said Manap
+* Rating systems research
+* Develop balanced rating system
+* Documentation
 # Jacky Chan
 * Learn kung-fu
 * Invented kung-fu

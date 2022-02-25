@@ -1,6 +1,6 @@
 > This folders will contain your reports
 ## Week by week plan
-|...|Abu Said Manap|Aizat Bissen|...|
+|...|Abu Said Manap|Aizat Bissen|Adilkhan Nurgaliyev|
 |---|---|---|---|
 |Week #3|Think of project idea and discuss it with team|Think of project idea and discuss it with team|...|
 |Week #4|Fill project description|Fill project description|...|

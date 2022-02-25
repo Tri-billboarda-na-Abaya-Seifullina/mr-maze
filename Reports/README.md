@@ -5,7 +5,7 @@
 |Week #3|Think of project idea and discuss it with team|Think of project idea and discuss it with team|Think of project idea and discuss it with team|
 |Week #4|Fill project description|Fill project description|Fill project description|
 |Week #5|Discuss a project development with team and create a week by week plan|Discuss a project development with team and create a week by week plan|Discuss a project development with team and create a week by week plan|
-|Week #6|Configure pipelines and CI/CD for backend and configure database and distribute it across microservices|Information Architecture and MCancel changesindmap|Configure pipelines and CI/CD for frontend|
+|Week #6|Configure pipelines and CI/CD for backend and configure database and distribute it across microservices|Information Architecture and Mindmap|Configure pipelines and CI/CD for frontend|
 |Week #7|Develop an authorization server|UX Research and Low-fidelity wireframes|Design review and libraries research|
 |Week #8|Develop a user information microservice|UX high-fidelity|Design review and libraries research|
 |Week #9|Maze generation research|UI and Clickable Prototype|Login page development|

@@ -11,7 +11,7 @@
 |Week #9|Maze generation research|UI and Clickable Prototype|Login page development|
 |Week #10|Develop maze generating and game information microservice|Adaptive version|Develop profile page|
 |Week #11|Rating systems research and develop balanced rating system|Usability testing|Develop game page|
-|Week #12|Come up with different abilities for characters and develop character microservice|Documentation|Develop game process|
+|Week #12|Come up with different abilities for characters and develop character microservice|Documentation|Develop game process, design characters and draw assests|
 |Week #13|Release v1.0.0|Design Review|Release v1.0.0|
 |Week #14|Hotfixes and balance rework|Design Review|Hotfixes and bugfix|
 |Week #15|Research paper editing|Design Review|Research paper editing|

@@ -2,5 +2,5 @@
 * Maze generation research
 * Documentation
 # Jacky Chan
-* Learn kung-fu
-* Invented kung-fu
+* UI
+* Clickable Prototype

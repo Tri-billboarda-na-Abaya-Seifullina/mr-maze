@@ -1,6 +1,6 @@
 # Abu Said Manap
 * Maze generation research
 * Documentation
-# Jacky Chan
+# Aizat Bissen
 * UI
 * Clickable Prototype

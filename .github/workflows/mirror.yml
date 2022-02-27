@@ -1,0 +1,22 @@
+name: Mirroring
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  delete:
+
+jobs:
+  to_github:
+    if: github.repository != 'SuleymanDemirelKazakhstan/diploma-project-3-billboarda-na-abaya-seifullina'
+    runs-on: ubuntu-latest
+    steps: # <-- must use actions/checkout before mirroring!
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url: git@github.com:${{ secrets.USERNAME }}/${{ secrets.REPO_NAME}}.git
+          ssh_private_key: # <-- use 'secrets' to pass credential information.
+            ${{ secrets.SSH_PRIVATE_KEY }}

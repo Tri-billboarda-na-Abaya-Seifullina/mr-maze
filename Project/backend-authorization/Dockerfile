@@ -15,8 +15,5 @@ COPY . .
 RUN go build -o ./out/backend-authorization .
 
 
-# This container exposes port 8080 to the outside world
-EXPOSE 8080
-
 # Run the binary program produced by `go install`
 CMD ["./out/backend-authorization"]

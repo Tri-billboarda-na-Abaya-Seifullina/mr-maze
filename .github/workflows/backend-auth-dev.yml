@@ -1,0 +1,20 @@
+name: Deploy dev auth server
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'Project/backend-authorization/**'
+      - '.github/workflows/backend-auth-dev.yml'
+
+jobs:
+  deploy:
+    if: github.repository != 'SuleymanDemirelKazakhstan/diploma-project-3-billboarda-na-abaya-seifullina'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Add backend-auth remote origin
+        run: git remote add heroku-backend-auth https://heroku:${{ secrets.HEROKU_API_TOKEN }}@git.heroku.com/${{ secrets.HEROKU_BACKEND_AUTH_DEV_NAME }}.git
+      - name: Deploy backend-auth dev to Heroku
+        run: git push heroku-backend-auth `git subtree split --prefix Project/backend-authorization ${GITHUB_REF_NAME}`:refs/heads/main --force

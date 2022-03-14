@@ -1,6 +1,5 @@
 # Abu Said Manap
-* Develop an authorization server
-* Documentation
+* Chose database
 # Aizat Bissen
 * UX Research
 * Low-fidelity wireframes

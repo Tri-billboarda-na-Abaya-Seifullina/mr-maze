@@ -6,13 +6,15 @@ import (
 )
 
 type Endpoints struct {
-	ExampleEndpoint endpoint.Endpoint
-	AddUserEndpoint endpoint.Endpoint
+	ExampleEndpoint  endpoint.Endpoint
+	AddUserEndpoint  endpoint.Endpoint
+	AuthUserEndpoint endpoint.Endpoint
 }
 
 func MakeEndpoints(s service.Service) Endpoints {
 	return Endpoints{
-		ExampleEndpoint: MakeExampleEndpoint(s),
-		AddUserEndpoint: MakeAddUserEndpoint(s),
+		ExampleEndpoint:  MakeExampleEndpoint(s),
+		AddUserEndpoint:  MakeAddUserEndpoint(s),
+		AuthUserEndpoint: MakeAuthUserEndpoint(s),
 	}
 }

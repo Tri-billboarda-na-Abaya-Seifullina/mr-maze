@@ -8,6 +8,7 @@ import (
 
 type Store interface {
 	AddUser(user *domain.User) error
+	VerifyUser(user *domain.User) (*domain.User, error)
 }
 type store struct {
 	db *sql.DB

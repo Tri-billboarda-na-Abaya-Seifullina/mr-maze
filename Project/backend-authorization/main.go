@@ -16,11 +16,12 @@ import (
 )
 
 var (
-	DB_NAME string
-	DB_USER string
-	DB_PASS string
-	DB_HOST string
-	DB_PORT string
+	DB_NAME  string
+	DB_USER  string
+	DB_PASS  string
+	DB_HOST  string
+	DB_PORT  string
+	SIGN_KEY string
 )
 
 func readEnv() {
@@ -30,6 +31,7 @@ func readEnv() {
 	DB_PASS = os.Getenv("POSTGRES_PASS")
 	DB_HOST = os.Getenv("POSTGRES_HOST")
 	DB_PORT = os.Getenv("POSTGRES_PORT")
+	SIGN_KEY = os.Getenv("SIGN_KEY")
 }
 
 func databaseUrl() string {
@@ -47,7 +49,7 @@ func main() {
 
 	var s service.Service
 	{
-		s = service.NewService(db)
+		s = service.NewService(db, SIGN_KEY)
 	}
 
 	var h http.Handler

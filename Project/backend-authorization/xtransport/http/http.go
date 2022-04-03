@@ -28,8 +28,15 @@ func MakeHTTPHandler(s service.Service) http.Handler {
 		encodeResponse,
 	)
 
+	authUser := httptransport.NewServer(
+		e.AuthUserEndpoint,
+		decodeHTTPAuthUserRequest,
+		encodeResponse,
+	)
+
 	r.Handle("/example", example).Methods("POST")
 	r.Handle("/register", addUser).Methods("POST")
+	r.Handle("/auth", authUser).Methods("POST")
 
 	return r
 }
@@ -62,6 +69,8 @@ func encodeError(_ context.Context, err error, w http.ResponseWriter) {
 
 func codeFrom(err error) int {
 	switch err {
+	case service.ErrorUnauthorized:
+		return http.StatusUnauthorized
 	default:
 		return http.StatusInternalServerError
 	}

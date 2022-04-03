@@ -14,7 +14,7 @@ type AddUserRequest struct {
 }
 
 type AddUserResponse struct {
-	Phrase string `json:"phrase"`
+	Result string `json:"result"`
 }
 
 func MakeAddUserEndpoint(s service.Service) endpoint.Endpoint {
@@ -30,6 +30,36 @@ func MakeAddUserEndpoint(s service.Service) endpoint.Endpoint {
 			return nil, err
 		}
 
-		return nil, nil
+		return AddUserResponse{
+			Result: "Registered successfully",
+		}, nil
+	}
+}
+
+type AuthUserRequest struct {
+	Login    string `json:"login"`
+	Password string `json:"password"`
+}
+
+type AuthUserResponse struct {
+	Token string `json:"token"`
+}
+
+func MakeAuthUserEndpoint(s service.Service) endpoint.Endpoint {
+	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
+		req := request.(*AuthUserRequest)
+
+		token, err := s.AuthUser(&domain.User{
+			Login:    req.Login,
+			Password: req.Password,
+		})
+
+		if err != nil {
+			return nil, err
+		}
+
+		return AuthUserResponse{
+			Token: token,
+		}, nil
 	}
 }

@@ -22,15 +22,12 @@ var (
 	DB_HOST  string
 	DB_PORT  string
 	SIGN_KEY string
+	DB_URL   string
 )
 
 func readEnv() {
 	godotenv.Load()
-	DB_NAME = os.Getenv("POSTGRES_DATABASE")
-	DB_USER = os.Getenv("POSTGRES_USER")
-	DB_PASS = os.Getenv("POSTGRES_PASS")
-	DB_HOST = os.Getenv("POSTGRES_HOST")
-	DB_PORT = os.Getenv("POSTGRES_PORT")
+	DB_URL = os.Getenv("DATABASE_URL")
 	SIGN_KEY = os.Getenv("SIGN_KEY")
 }
 

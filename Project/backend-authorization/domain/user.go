@@ -7,6 +7,7 @@ import (
 const (
 	REGISTER = "register"
 	AUTH     = "auth"
+	REFRESH  = "refresh"
 )
 
 type User struct {
@@ -19,4 +20,8 @@ type Claims struct {
 	Id    int    `json:"id"`
 	Login string `json:"login"`
 	jwt.StandardClaims
+}
+
+type Token struct {
+	Token string
 }

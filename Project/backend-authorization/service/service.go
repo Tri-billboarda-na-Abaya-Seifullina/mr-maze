@@ -12,6 +12,7 @@ type Service interface {
 	ExampleServiceMethod(name string) (string, error)
 	AddUser(user *domain.User) error
 	AuthUser(user *domain.User) (string, error)
+	RefreshToken(token *domain.Token) (string, error)
 }
 
 type service struct {

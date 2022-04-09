@@ -34,9 +34,16 @@ func MakeHTTPHandler(s service.Service) http.Handler {
 		encodeResponse,
 	)
 
+	refreshToken := httptransport.NewServer(
+		e.RefreshTokenEndpoint,
+		decodeHTTPRefreshTokenRequest,
+		encodeResponse,
+	)
+
 	r.Handle("/example", example).Methods("POST")
 	r.Handle("/register", addUser).Methods("POST")
 	r.Handle("/auth", authUser).Methods("POST")
+	r.Handle("/refresh", refreshToken).Methods("POST")
 
 	return r
 }

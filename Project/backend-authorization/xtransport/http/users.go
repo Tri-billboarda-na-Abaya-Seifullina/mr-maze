@@ -23,7 +23,7 @@ func decodeHTTPAddUserRequest(_ context.Context, r *http.Request) (request inter
 	log.WithFields(log.Fields{
 		"method": domain.REGISTER,
 		"login":  req.Login,
-	}).Info("got request")
+	}).Info("Got request")
 	return req, nil
 }
 
@@ -40,6 +40,23 @@ func decodeHTTPAuthUserRequest(_ context.Context, r *http.Request) (request inte
 	log.WithFields(log.Fields{
 		"method": domain.AUTH,
 		"login":  req.Login,
-	}).Info("got request")
+	}).Info("Got request")
+	return req, nil
+}
+
+func decodeHTTPRefreshTokenRequest(_ context.Context, r *http.Request) (request interface{}, err error) {
+	req := &endpoints.RefreshTokenRequest{}
+
+	if err := json.NewDecoder(r.Body).Decode(req); err != nil {
+		log.WithFields(log.Fields{
+			"method": domain.REFRESH,
+		}).Error("error reading request body")
+		return nil, err
+	}
+
+	log.WithFields(log.Fields{
+		"method": domain.REFRESH,
+		"token":  req.Token,
+	}).Info("Got request")
 	return req, nil
 }

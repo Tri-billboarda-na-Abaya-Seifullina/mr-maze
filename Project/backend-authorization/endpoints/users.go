@@ -63,3 +63,29 @@ func MakeAuthUserEndpoint(s service.Service) endpoint.Endpoint {
 		}, nil
 	}
 }
+
+type RefreshTokenRequest struct {
+	Token string `json:"token"`
+}
+
+type RefreshTokenResponse struct {
+	Token string `json:"token"`
+}
+
+func MakeRefreshTokenEndpoint(s service.Service) endpoint.Endpoint {
+	return func(ctx context.Context, request interface{}) (response interface{}, err error) {
+		req := request.(*RefreshTokenRequest)
+
+		token, err := s.RefreshToken(&domain.Token{
+			Token: req.Token,
+		})
+
+		if err != nil {
+			return nil, err
+		}
+
+		return RefreshTokenResponse{
+			Token: token,
+		}, nil
+	}
+}

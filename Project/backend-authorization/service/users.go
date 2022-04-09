@@ -96,10 +96,10 @@ func (s *service) RefreshToken(token *domain.Token) (string, error) {
 
 	if !tkn.Valid {
 		log.WithFields(log.Fields{
-			"method":  domain.AUTH,
+			"method":  domain.REFRESH,
 			"token":   token.Token,
 			"message": err.Error(),
-		}).Error("invalid body")
+		}).Error("invalid token")
 		return "", ErrorUnauthorized
 	}
 
@@ -107,12 +107,12 @@ func (s *service) RefreshToken(token *domain.Token) (string, error) {
 		log.WithFields(log.Fields{
 			"method":  domain.REFRESH,
 			"token":   token.Token,
-			"message": err.Error(),
+			"message": "too old token",
 		}).Error("too old token")
 		return "", ErrorUnauthorized
 	}
 
-	expirationTime := time.Now().Add(5 * time.Minute)
+	expirationTime := time.Now().Add(time.Hour)
 	claims.ExpiresAt = expirationTime.Unix()
 	newToken := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	tokenString, err := newToken.SignedString(s.SignKey)

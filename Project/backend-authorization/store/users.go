@@ -21,7 +21,7 @@ func (s *store) AddUser(user *domain.User) error {
 	log.WithFields(log.Fields{
 		"method": domain.REGISTER,
 		"login":  user.Login,
-	}).Info("database insert success")
+	}).Info("Database insert success")
 
 	return nil
 }
@@ -51,7 +51,7 @@ func (s *store) VerifyUser(user *domain.User) (*domain.User, error) {
 	log.WithFields(log.Fields{
 		"method": domain.AUTH,
 		"login":  user.Login,
-	}).Info("user found")
+	}).Info("User found")
 
 	return ret, nil
 }

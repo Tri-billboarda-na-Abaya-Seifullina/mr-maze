@@ -16,11 +16,7 @@ import (
 )
 
 var (
-	DB_NAME  string
-	DB_USER  string
-	DB_PASS  string
-	DB_HOST  string
-	DB_PORT  string
+	PORT     string
 	SIGN_KEY string
 	DB_URL   string
 )
@@ -28,16 +24,14 @@ var (
 func readEnv() {
 	godotenv.Load()
 	DB_URL = os.Getenv("DATABASE_URL")
+	PORT = os.Getenv("PORT")
 	SIGN_KEY = os.Getenv("SIGN_KEY")
 }
 
-func databaseUrl() string {
-	return fmt.Sprintf("postgres://%s:%s@%s:%s/%s", DB_USER, DB_PASS, DB_HOST, DB_PORT, DB_NAME)
-}
 func main() {
 	readEnv()
 
-	db, err := sql.Open("pgx", databaseUrl())
+	db, err := sql.Open("pgx", DB_URL)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
 		os.Exit(1)
@@ -63,7 +57,7 @@ func main() {
 
 	go func() {
 		fmt.Println("Listening")
-		errs <- http.ListenAndServe(":8080", h)
+		errs <- http.ListenAndServe(fmt.Sprintf(":%s", PORT), h)
 	}()
 
 	fmt.Println("exiting", <-errs)

@@ -96,10 +96,10 @@ func (s *service) RefreshToken(token *domain.Token) (string, error) {
 
 	if !tkn.Valid {
 		log.WithFields(log.Fields{
-			"method":  domain.AUTH,
+			"method":  domain.REFRESH,
 			"token":   token.Token,
 			"message": err.Error(),
-		}).Error("invalid body")
+		}).Error("invalid token")
 		return "", ErrorUnauthorized
 	}
 
@@ -107,7 +107,7 @@ func (s *service) RefreshToken(token *domain.Token) (string, error) {
 		log.WithFields(log.Fields{
 			"method":  domain.REFRESH,
 			"token":   token.Token,
-			"message": err.Error(),
+			"message": "too old token",
 		}).Error("too old token")
 		return "", ErrorUnauthorized
 	}

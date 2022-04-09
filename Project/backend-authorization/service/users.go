@@ -112,7 +112,7 @@ func (s *service) RefreshToken(token *domain.Token) (string, error) {
 		return "", ErrorUnauthorized
 	}
 
-	expirationTime := time.Now().Add(5 * time.Minute)
+	expirationTime := time.Now().Add(time.Hour)
 	claims.ExpiresAt = expirationTime.Unix()
 	newToken := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	tokenString, err := newToken.SignedString(s.SignKey)

@@ -3,6 +3,7 @@ package xhttp
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"net/http"
 
 	"github.com/Abunyawa/back_auth/endpoints"
@@ -75,10 +76,9 @@ func encodeError(_ context.Context, err error, w http.ResponseWriter) {
 }
 
 func codeFrom(err error) int {
-	switch err {
-	case service.ErrorUnauthorized:
+	if errors.Is(err, service.ErrorUnauthorized) {
 		return http.StatusUnauthorized
-	default:
+	} else {
 		return http.StatusInternalServerError
 	}
 }

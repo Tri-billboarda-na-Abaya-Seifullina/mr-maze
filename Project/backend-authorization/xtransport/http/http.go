@@ -3,7 +3,7 @@ package xhttp
 import (
 	"context"
 	"encoding/json"
-	"errors"
+	"github.com/go-kit/kit/endpoint"
 	"net/http"
 
 	"github.com/Abunyawa/back_auth/endpoints"
@@ -14,6 +14,11 @@ import (
 )
 
 func MakeHTTPHandler(s service.Service) http.Handler {
+
+	options := []httptransport.ServerOption{
+		httptransport.ServerErrorEncoder(errorEncoder),
+	}
+
 	r := mux.NewRouter()
 	e := endpoints.MakeEndpoints(s)
 
@@ -21,24 +26,28 @@ func MakeHTTPHandler(s service.Service) http.Handler {
 		e.ExampleEndpoint,
 		decodeHTTPExampleRequest,
 		encodeResponse,
+		options...,
 	)
 
 	addUser := httptransport.NewServer(
 		e.AddUserEndpoint,
 		decodeHTTPAddUserRequest,
 		encodeResponse,
+		options...,
 	)
 
 	authUser := httptransport.NewServer(
 		e.AuthUserEndpoint,
 		decodeHTTPAuthUserRequest,
 		encodeResponse,
+		options...,
 	)
 
 	refreshToken := httptransport.NewServer(
 		e.RefreshTokenEndpoint,
 		decodeHTTPRefreshTokenRequest,
 		encodeResponse,
+		options...,
 	)
 
 	r.Handle("/example", example).Methods("POST")
@@ -49,36 +58,28 @@ func MakeHTTPHandler(s service.Service) http.Handler {
 	return r
 }
 
-type errorer interface {
-	error() error
+type errorWrapper struct {
+	Error string `json:"error"`
+}
+
+func errorEncoder(_ context.Context, err error, w http.ResponseWriter) {
+	w.WriteHeader(err2code(err))
+	json.NewEncoder(w).Encode(errorWrapper{Error: err.Error()})
+}
+
+func err2code(err error) int {
+	switch err {
+	case service.ErrorUnauthorized:
+		return http.StatusUnauthorized
+	}
+	return http.StatusInternalServerError
 }
 
 func encodeResponse(ctx context.Context, w http.ResponseWriter, response interface{}) error {
-	if e, ok := response.(errorer); ok && e.error() != nil {
-		// Not a Go kit transport error, but a business-logic error.
-		// Provide those as HTTP errors.
-		encodeError(ctx, e.error(), w)
+	if f, ok := response.(endpoint.Failer); ok && f.Failed() != nil {
+		errorEncoder(ctx, f.Failed(), w)
 		return nil
 	}
 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	return json.NewEncoder(w).Encode(response)
-}
-
-func encodeError(_ context.Context, err error, w http.ResponseWriter) {
-	if err == nil {
-		panic("encodeError with nil error")
-	}
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
-	w.WriteHeader(codeFrom(err))
-	json.NewEncoder(w).Encode(map[string]interface{}{
-		"error": err.Error(),
-	})
-}
-
-func codeFrom(err error) int {
-	if errors.Is(err, service.ErrorUnauthorized) {
-		return http.StatusUnauthorized
-	} else {
-		return http.StatusInternalServerError
-	}
 }

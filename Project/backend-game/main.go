@@ -48,6 +48,7 @@ func main() {
 		h = xhttp.MakeHTTPHandler(s)
 	}
 
+	s.GenerateMaze(20, 20)
 	errs := make(chan error)
 	go func() {
 		c := make(chan os.Signal, 1)

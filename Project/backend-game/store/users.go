@@ -1,5 +1,6 @@
 package store
 
+/*
 import (
 	"database/sql"
 	"github.com/Abunyawa/back_game/domain"
@@ -55,3 +56,4 @@ func (s *store) VerifyUser(user *domain.User) (*domain.User, error) {
 
 	return ret, nil
 }
+*/

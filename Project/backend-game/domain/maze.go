@@ -20,31 +20,31 @@ func NewDSU(size int) *DSU {
 	}
 
 	for i := 0; i < size; i++ {
-		ret.makeSet(i)
+		ret.MakeSet(i)
 	}
 
 	return ret
 }
-func (d *DSU) makeSet(v int) {
+func (d *DSU) MakeSet(v int) {
 	d.parent[v] = v
-	d.rank[v] = v
+	d.rank[v] = 0
 	d.used[v] = true
 }
 
-func (d *DSU) findSet(v int) int {
+func (d *DSU) FindSet(v int) int {
 	if v == d.parent[v] {
 		return v
 	}
 
 	d.used[d.parent[v]] = false
-	d.parent[v] = d.findSet(d.parent[v])
+	d.parent[v] = d.FindSet(d.parent[v])
 
 	return d.parent[v]
 }
 
-func (d *DSU) unionSets(a, b int) {
-	a = d.findSet(a)
-	b = d.findSet(b)
+func (d *DSU) UnionSets(a, b int) {
+	a = d.FindSet(a)
+	b = d.FindSet(b)
 
 	if a != b {
 		if d.rank[a] > d.rank[b] {

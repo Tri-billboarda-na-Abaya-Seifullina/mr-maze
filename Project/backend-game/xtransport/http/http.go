@@ -6,54 +6,18 @@ import (
 	"github.com/go-kit/kit/endpoint"
 	"net/http"
 
-	"github.com/Abunyawa/back_game/endpoints"
 	"github.com/Abunyawa/back_game/service"
 	"github.com/gorilla/mux"
-
-	httptransport "github.com/go-kit/kit/transport/http"
 )
 
 func MakeHTTPHandler(s service.Service) http.Handler {
 
-	options := []httptransport.ServerOption{
+	/*options := []httptransport.ServerOption{
 		httptransport.ServerErrorEncoder(errorEncoder),
-	}
+	}*/
 
 	r := mux.NewRouter()
-	e := endpoints.MakeEndpoints(s)
-
-	example := httptransport.NewServer(
-		e.ExampleEndpoint,
-		decodeHTTPExampleRequest,
-		encodeResponse,
-		options...,
-	)
-
-	addUser := httptransport.NewServer(
-		e.AddUserEndpoint,
-		decodeHTTPAddUserRequest,
-		encodeResponse,
-		options...,
-	)
-
-	authUser := httptransport.NewServer(
-		e.AuthUserEndpoint,
-		decodeHTTPAuthUserRequest,
-		encodeResponse,
-		options...,
-	)
-
-	refreshToken := httptransport.NewServer(
-		e.RefreshTokenEndpoint,
-		decodeHTTPRefreshTokenRequest,
-		encodeResponse,
-		options...,
-	)
-
-	r.Handle("/example", example).Methods("POST")
-	r.Handle("/register", addUser).Methods("POST")
-	r.Handle("/auth", authUser).Methods("POST")
-	r.Handle("/refresh", refreshToken).Methods("POST")
+	//e := endpoints.MakeEndpoints(s)
 
 	return r
 }
@@ -69,8 +33,6 @@ func errorEncoder(_ context.Context, err error, w http.ResponseWriter) {
 
 func err2code(err error) int {
 	switch err {
-	case service.ErrorUnauthorized:
-		return http.StatusUnauthorized
 	}
 	return http.StatusInternalServerError
 }

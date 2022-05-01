@@ -2,13 +2,11 @@ package store
 
 import (
 	"database/sql"
-
-	"github.com/Abunyawa/back_game/domain"
 )
 
 type Store interface {
-	AddUser(user *domain.User) error
-	VerifyUser(user *domain.User) (*domain.User, error)
+	//AddUser(user *domain.User) error
+	//VerifyUser(user *domain.User) (*domain.User, error)
 }
 type store struct {
 	db *sql.DB

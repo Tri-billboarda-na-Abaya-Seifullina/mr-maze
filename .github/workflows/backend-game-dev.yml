@@ -1,0 +1,20 @@
+name: Deploy dev game server
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - 'Project/backend-game/**'
+      - '.github/workflows/backend-game-dev.yml'
+
+jobs:
+  deploy:
+    if: github.repository != 'SuleymanDemirelKazakhstan/diploma-project-3-billboarda-na-abaya-seifullina'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Add backend-game remote origin
+        run: git remote add heroku-backend-game https://heroku:${{ secrets.HEROKU_API_TOKEN }}@git.heroku.com/${{ secrets.HEROKU_BACKEND_GAME_DEV_NAME }}.git
+      - name: Deploy backend-game dev to Heroku
+        run: git push heroku-backend-game `git subtree split --prefix Project/backend-game ${GITHUB_REF_NAME}`:refs/heads/main --force

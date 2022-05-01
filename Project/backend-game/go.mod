@@ -1,6 +1,8 @@
 module github.com/Abunyawa/back_game
 
-go 1.16
+// +heroku goVersion go1.17
+go 1.17
+
 
 require (
 	github.com/go-kit/kit v0.12.0

@@ -1,8 +1,8 @@
 package service
 
 import (
-	"fmt"
 	"github.com/Abunyawa/back_game/domain"
+	log "github.com/sirupsen/logrus"
 	"math/rand"
 	"strings"
 	"time"
@@ -105,6 +105,15 @@ func (s *service) GenerateMaze(length, width int) (*domain.Maze, error) {
 	}
 	maze.Rows = append(maze.Rows, strings.Join(row, ""))
 
-	fmt.Println(strings.Join(maze.Rows, "\n"))
+	log.WithFields(log.Fields{
+		"method": domain.GENERATING,
+		"id":     maze.Id,
+	}).Info("Maze generated")
+
+	err := s.Store.AddMaze(maze)
+	if err != nil {
+		return nil, err
+	}
+
 	return maze, nil
 }

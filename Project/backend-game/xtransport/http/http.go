@@ -3,22 +3,32 @@ package xhttp
 import (
 	"context"
 	"encoding/json"
-	"github.com/go-kit/kit/endpoint"
-	"net/http"
-
+	"github.com/Abunyawa/back_game/endpoints"
 	"github.com/Abunyawa/back_game/service"
+	"github.com/go-kit/kit/endpoint"
+	httptransport "github.com/go-kit/kit/transport/http"
 	"github.com/gorilla/mux"
+	"net/http"
 )
 
 func MakeHTTPHandler(s service.Service) http.Handler {
 
-	/*options := []httptransport.ServerOption{
+	options := []httptransport.ServerOption{
 		httptransport.ServerErrorEncoder(errorEncoder),
-	}*/
+	}
 
 	r := mux.NewRouter()
-	//e := endpoints.MakeEndpoints(s)
+	e := endpoints.MakeEndpoints(s)
 
+	generateMaze := httptransport.NewServer(
+		e.GenerateMazeEndpoint,
+		decodeHTTPGenerateMazeRequest,
+		encodeResponse,
+		options...,
+	)
+
+	r.Handle("/generate", generateMaze).Methods("POST")
+	
 	return r
 }
 

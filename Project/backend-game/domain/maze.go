@@ -1,6 +1,11 @@
 package domain
 
+const (
+	GENERATING = "GENERATING"
+)
+
 type Maze struct {
+	Id   int      `json:"id"'`
 	Rows []string `json:"rows"`
 }
 

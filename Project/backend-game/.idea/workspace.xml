@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2df5b9e1-4ec8-495d-95f2-5bed3f3e3ebc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/endpoints/maze.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/maze.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/maze.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/maze.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/endpoints/maze.go" beforeDir="false" afterPath="$PROJECT_DIR$/endpoints/maze.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/endpoints/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/endpoints/middleware.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/maze.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/maze.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store/maze.go" beforeDir="false" afterPath="$PROJECT_DIR$/store/maze.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/store.go" beforeDir="false" afterPath="$PROJECT_DIR$/store/store.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xtransport/http/http.go" beforeDir="false" afterPath="$PROJECT_DIR$/xtransport/http/http.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xtransport/http/maze.go" beforeDir="false" afterPath="$PROJECT_DIR$/xtransport/http/maze.go" afterDir="false" />

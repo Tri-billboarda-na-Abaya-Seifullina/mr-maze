@@ -7,10 +7,12 @@ import (
 
 type Endpoints struct {
 	GenerateMazeEndpoint endpoint.Endpoint
+	GetMazeEndpoint      endpoint.Endpoint
 }
 
 func MakeEndpoints(s service.Service) Endpoints {
 	return Endpoints{
 		GenerateMazeEndpoint: MakeGenerateMazeEndpoint(s),
+		GetMazeEndpoint:      MakeGetMazeEndpoint(s),
 	}
 }

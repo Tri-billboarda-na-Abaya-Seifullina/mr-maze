@@ -27,8 +27,16 @@ func MakeHTTPHandler(s service.Service) http.Handler {
 		options...,
 	)
 
+	getMaze := httptransport.NewServer(
+		e.GetMazeEndpoint,
+		decodeHTTPGetMazeRequest,
+		encodeResponse,
+		options...,
+	)
+
 	r.Handle("/generate", generateMaze).Methods("POST")
-	
+	r.Handle("/get", getMaze).Methods("GET")
+
 	return r
 }
 
@@ -43,7 +51,10 @@ func errorEncoder(_ context.Context, err error, w http.ResponseWriter) {
 
 func err2code(err error) int {
 	switch err {
+	case ErrorBadRequest:
+		return http.StatusBadRequest
 	}
+
 	return http.StatusInternalServerError
 }
 

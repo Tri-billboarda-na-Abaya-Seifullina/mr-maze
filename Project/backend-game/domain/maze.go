@@ -2,6 +2,7 @@ package domain
 
 const (
 	GENERATING = "GENERATING"
+	READING    = "READING"
 )
 
 type Maze struct {

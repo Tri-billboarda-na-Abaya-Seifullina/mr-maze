@@ -117,3 +117,7 @@ func (s *service) GenerateMaze(length, width int) (*domain.Maze, error) {
 
 	return maze, nil
 }
+
+func (s *service) GetMaze(id int) (*domain.Maze, error) {
+	return s.Store.GetMaze(id)
+}

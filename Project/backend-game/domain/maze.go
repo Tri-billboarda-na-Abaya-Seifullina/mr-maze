@@ -12,7 +12,7 @@ type Maze struct {
 
 type Map struct {
 	Id    int      `json:"id"`
-	Cells [][]Cell `json:"row"`
+	Cells [][]Cell `json:"map"`
 }
 
 type Cell struct {

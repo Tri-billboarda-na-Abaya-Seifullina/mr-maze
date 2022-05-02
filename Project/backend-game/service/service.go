@@ -9,8 +9,8 @@ import (
 
 // Methods declared here
 type Service interface {
-	GenerateMaze(length, width int) (*domain.Maze, error)
-	GetMaze(id int) (*domain.Maze, error)
+	GenerateMaze(length, width int) (*domain.Map, error)
+	GetMaze(id int) (*domain.Map, error)
 }
 
 type service struct {

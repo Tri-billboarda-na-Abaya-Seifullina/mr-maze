@@ -8,14 +8,14 @@ import (
 	"time"
 )
 
-func (s *service) GenerateMaze(length, width int) (*domain.Maze, error) {
+func (s *service) GenerateMaze(length, width int) (*domain.Map, error) {
 	maze := &domain.Maze{Rows: []string{}}
 
 	row := make([]string, width*2+1)
 
 	for i := 0; i < width; i++ {
 		row[2*i+1] = "_"
-		row[2*i] = " "
+		row[2*i] = "_"
 	}
 	maze.Rows = append(maze.Rows, strings.Join(row, ""))
 
@@ -115,9 +115,97 @@ func (s *service) GenerateMaze(length, width int) (*domain.Maze, error) {
 		return nil, err
 	}
 
-	return maze, nil
+	ret := &domain.Map{Id: maze.Id}
+	ret.Rows = make([]domain.Row, length)
+	for i := 0; i < length; i++ {
+		ret.Rows[i].Cells = make([]domain.Cell, width)
+	}
+	for i := 0; i < length; i++ {
+		for j := 0; j < width; j++ {
+			ret.Rows[i].Cells[j] = domain.Cell{
+				Up:    true,
+				Right: true,
+				Down:  true,
+				Left:  true,
+			}
+		}
+	}
+
+	for i := 0; i <= length; i++ {
+		for j, v := range maze.Rows[i] {
+
+			if v == '_' {
+				if i != 0 {
+					ret.Rows[i-1].Cells[j/2].Down = false
+				}
+				if i < length {
+					ret.Rows[i].Cells[j/2].Up = false
+				}
+			}
+
+			if v == '|' {
+				if j/2-1 >= 0 {
+					ret.Rows[i-1].Cells[j/2-1].Right = false
+				}
+				if j/2 < width {
+					ret.Rows[i-1].Cells[j/2].Left = false
+				}
+
+			}
+		}
+	}
+
+	return ret, nil
 }
 
-func (s *service) GetMaze(id int) (*domain.Maze, error) {
-	return s.Store.GetMaze(id)
+func (s *service) GetMaze(id int) (*domain.Map, error) {
+	maze, err := s.Store.GetMaze(id)
+	length := len(maze.Rows) - 1
+	width := len(maze.Rows[0]) / 2
+
+	if err != nil {
+		return nil, err
+	}
+
+	ret := &domain.Map{Id: maze.Id}
+	ret.Rows = make([]domain.Row, length)
+	for i := 0; i < length; i++ {
+		ret.Rows[i].Cells = make([]domain.Cell, width)
+	}
+	for i := 0; i < length; i++ {
+		for j := 0; j < width; j++ {
+			ret.Rows[i].Cells[j] = domain.Cell{
+				Up:    true,
+				Right: true,
+				Down:  true,
+				Left:  true,
+			}
+		}
+	}
+
+	for i := 0; i <= length; i++ {
+		for j, v := range maze.Rows[i] {
+
+			if v == '_' {
+				if i != 0 {
+					ret.Rows[i-1].Cells[j/2].Down = false
+				}
+				if i < length {
+					ret.Rows[i].Cells[j/2].Up = false
+				}
+			}
+
+			if v == '|' {
+				if j/2-1 >= 0 {
+					ret.Rows[i-1].Cells[j/2-1].Right = false
+				}
+				if j/2 < width {
+					ret.Rows[i-1].Cells[j/2].Left = false
+				}
+
+			}
+		}
+	}
+
+	return ret, nil
 }

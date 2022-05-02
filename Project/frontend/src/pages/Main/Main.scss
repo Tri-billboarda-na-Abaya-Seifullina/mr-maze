@@ -1,0 +1,103 @@
+$main-bg-color: #1F1D2B;
+
+.main {
+    background-color: $main-bg-color;
+    height: 100vh;
+    padding: 2% 5%;
+    overflow: hidden;
+    .content {
+        display: flex;
+        height: 84vh;
+        .left {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            h1 {
+                font-size: 4em;
+                color: #fff;
+                margin: 0;
+            }
+            p {
+                font-size: 1.8em;
+                color: #E2E2E2;
+            }
+            button {
+                border: none;
+                padding: 2% 15%;
+                margin-right: 25px;
+                font-size: 1em;
+                font-weight: 600;
+                background: none;
+                border-radius: 0.5em;
+                color: #fff;
+            }
+            .start {
+                background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
+            }
+            .join {
+                border: 2px solid #D7D7D7;
+            }
+        }
+        .right {
+            width: 50%;
+            min-height: 100%;
+            position: relative;
+            img {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .dot {
+                position: absolute;
+                min-width: 10vw;
+                min-height: 10vw;
+                border-radius: 50%;
+                filter: blur(4vw);
+                &-blue {
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #18B2DE;
+                    animation: blue-dot 6s linear infinite;
+                }
+                &-pink {
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: #FB37FF;
+                    animation: pink-dot 6s linear infinite;
+                }
+            }
+        }
+    }
+}
+
+@keyframes blue-dot {
+    0%{
+    transform: rotate(0deg)
+                translate(-20vw)
+                rotate(0deg);
+    
+    }
+    100%{
+    transform:rotate(360deg)
+                translate(-20vw)
+                rotate(-360deg);
+    }
+}
+
+@keyframes pink-dot {
+    0%{
+        transform: rotate(0deg)
+                    translate(20vw)
+                    rotate(0deg);
+    
+    }
+    100%{
+        transform:rotate(360deg)
+                translate(20vw)
+                rotate(-360deg);
+    }
+}

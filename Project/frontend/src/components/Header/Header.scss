@@ -1,0 +1,23 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 8vh;
+}
+
+.header-right {
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+    }
+}

@@ -11,12 +11,8 @@ type Maze struct {
 }
 
 type Map struct {
-	Id   int   `json:"id"`
-	Rows []Row `json:"row"`
-}
-
-type Row struct {
-	Cells []Cell `json:"cells"`
+	Id    int      `json:"id"`
+	Cells [][]Cell `json:"row"`
 }
 
 type Cell struct {

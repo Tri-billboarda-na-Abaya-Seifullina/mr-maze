@@ -116,13 +116,13 @@ func (s *service) GenerateMaze(length, width int) (*domain.Map, error) {
 	}
 
 	ret := &domain.Map{Id: maze.Id}
-	ret.Rows = make([]domain.Row, length)
+	ret.Cells = make([][]domain.Cell, length)
 	for i := 0; i < length; i++ {
-		ret.Rows[i].Cells = make([]domain.Cell, width)
+		ret.Cells[i] = make([]domain.Cell, width)
 	}
 	for i := 0; i < length; i++ {
 		for j := 0; j < width; j++ {
-			ret.Rows[i].Cells[j] = domain.Cell{
+			ret.Cells[i][j] = domain.Cell{
 				Up:    true,
 				Right: true,
 				Down:  true,
@@ -136,19 +136,19 @@ func (s *service) GenerateMaze(length, width int) (*domain.Map, error) {
 
 			if v == '_' {
 				if i != 0 {
-					ret.Rows[i-1].Cells[j/2].Down = false
+					ret.Cells[i-1][j/2].Down = false
 				}
 				if i < length {
-					ret.Rows[i].Cells[j/2].Up = false
+					ret.Cells[i][j/2].Up = false
 				}
 			}
 
 			if v == '|' {
 				if j/2-1 >= 0 {
-					ret.Rows[i-1].Cells[j/2-1].Right = false
+					ret.Cells[i-1][j/2-1].Right = false
 				}
 				if j/2 < width {
-					ret.Rows[i-1].Cells[j/2].Left = false
+					ret.Cells[i-1][j/2].Left = false
 				}
 
 			}
@@ -168,13 +168,13 @@ func (s *service) GetMaze(id int) (*domain.Map, error) {
 	}
 
 	ret := &domain.Map{Id: maze.Id}
-	ret.Rows = make([]domain.Row, length)
+	ret.Cells = make([][]domain.Cell, length)
 	for i := 0; i < length; i++ {
-		ret.Rows[i].Cells = make([]domain.Cell, width)
+		ret.Cells[i] = make([]domain.Cell, width)
 	}
 	for i := 0; i < length; i++ {
 		for j := 0; j < width; j++ {
-			ret.Rows[i].Cells[j] = domain.Cell{
+			ret.Cells[i][j] = domain.Cell{
 				Up:    true,
 				Right: true,
 				Down:  true,
@@ -188,19 +188,19 @@ func (s *service) GetMaze(id int) (*domain.Map, error) {
 
 			if v == '_' {
 				if i != 0 {
-					ret.Rows[i-1].Cells[j/2].Down = false
+					ret.Cells[i-1][j/2].Down = false
 				}
 				if i < length {
-					ret.Rows[i].Cells[j/2].Up = false
+					ret.Cells[i][j/2].Up = false
 				}
 			}
 
 			if v == '|' {
 				if j/2-1 >= 0 {
-					ret.Rows[i-1].Cells[j/2-1].Right = false
+					ret.Cells[i-1][j/2-1].Right = false
 				}
 				if j/2 < width {
-					ret.Rows[i-1].Cells[j/2].Left = false
+					ret.Cells[i-1][j/2].Left = false
 				}
 
 			}

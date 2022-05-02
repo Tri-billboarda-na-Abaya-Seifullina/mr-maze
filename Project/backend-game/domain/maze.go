@@ -6,8 +6,24 @@ const (
 )
 
 type Maze struct {
-	Id   int      `json:"id"'`
+	Id   int      `json:"id"`
 	Rows []string `json:"rows"`
+}
+
+type Map struct {
+	Id   int   `json:"id"`
+	Rows []Row `json:"row"`
+}
+
+type Row struct {
+	Cells []Cell `json:"cells"`
+}
+
+type Cell struct {
+	Up    bool `json:"up"`
+	Right bool `json:"right"`
+	Down  bool `json:"down"`
+	Left  bool `json:"left"`
 }
 
 type DSU struct {

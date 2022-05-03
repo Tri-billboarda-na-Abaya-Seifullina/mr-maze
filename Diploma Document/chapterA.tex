@@ -83,4 +83,196 @@ Our backend designed in microservice architecture. In this section we will descr
 	SQL databases provide fast data access and data modification. We are not going to delete often or change table structure, so there is no need to use collection based databases like Mongo.
 	
 \section{Maze generation}
+	In this chapter we will explain some structures and approaches to make it clear how we produce valid maze with almost linear time complexity (We will talk about this "almost" a bit later)
+	\subsection{Disjoint Set Union}
+	First what we need is disjoint set union (DSU). It is a structure that stores indexes and the set it belongs to. Initially all indexes belong to set with only that index, so it is a representative of this set. DSU can say which set does exact index belong to and can unite two sets.
+		\subsubsection{Data structure}
+		In this code we see DSU structure with three fields. 
+
+		\begin{lstlisting}
+		type DSU struct {
+			Size   int
+			parent []int
+			rank   []int
+		}
+
+		func NewDSU(size int) *DSU {
+			ret := &DSU{
+				Size:   size,
+				parent: make([]int, size),
+				rank:   make([]int, size),
+			}
+
+			for i := 0; i < size; i++ {
+				ret.MakeSet(i)
+			}
+
+			return ret
+		}
+		func (d *DSU) MakeSet(v int) {
+			d.parent[v] = v
+			d.rank[v] = 0
+		}
+		\end{lstlisting}
+		
+		
+		\begin{itemize}
+			\item Size - number of indexes
+			\item parent - an index which is also is in that index's set
+			\item rank - approximated height of tree, in case it is a perfect binary tree, used for optimization. (It is a thing that makes time complexity almost constant, because we will compress tree by reassigning a parent node every time we get a query to find set)
+		\end{itemize}
+		
+		NewDSU function is a constructor, here we are declaring data according to size and setting them an initial value, which is 0 rank and set is same as number of node.
+		
+		MakeSet method sets node's values to default
+		
+		\subsubsection{Methods}
+		Here we will go through data structure's two methods
+		\begin{lstlisting}
+		func (d *DSU) FindSet(v int) int {
+			if v == d.parent[v] {
+				return v
+			}
+
+			d.parent[v] = d.FindSet(d.parent[v])
+
+			return d.parent[v]
+		}
+
+		func (d *DSU) UnionSets(a, b int) {
+			a = d.FindSet(a)
+			b = d.FindSet(b)
+
+			if a != b {
+				if d.rank[a] < d.rank[b] {
+					a, b = b, a
+				}
+				d.parent[b] = a
+				if d.rank[a] == d.rank[b] {
+					d.rank[a]++
+				}
+			}
+		}
+		\end{lstlisting}
+		\begin{itemize}
+			\item FindSet - returns a set of node. It goes up through parent array at exiting it reassigns parent value, so each time we make a request we make it method faster
+			\item UnionSet - unites two set. First it find representatives of two set. Then it checks their ranks and assigns a set with bigger rank to the one with the smaller. 
+		\end{itemize}
+		
+		\subsubsection{Time complexity}
+		Time complexity analysis shows that rank heuristic optimization and path compressing gives us $O(\alpha{}(n))$ per query. $\alpha(n)$ is an Inverse Ackermann function and it is not exceeding 4 for $n<=10^{600}$, that why we can consider it as constant.
+		
+		\subsection{Eller's algorithm}
+		This algorithm for maze generating works row by row and it is crazy, because on output we will have perfect maze. Each point can be reached and there is exactly one way between them.
+		Algorithm:
+		
+		\begin{enumerate}
+			\item Initialize the cells of the first row to each exist in their own set.
+			\item Now, randomly join adjacent cells, but only if they are not in the same set. When joining adjacent cells, merge the cells of both sets into a single set, indicating that all cells in both sets are now connected (there is a path that connects any two cells in the set).
+			\item For each set, randomly create vertical connections downward to the next row. Each remaining set must have at least one vertical connection. The cells in the next row thus connected must share the set of the cell above them.
+			\item Flesh out the next row by putting any remaining cells into their own sets.
+			\item Repeat until the last row is reached.
+			\item For the last row, join all adjacent cells that do not share a set, and omit the vertical connections, and you’re done!
+		\end{enumerate}
+		
+		\paragraph{Step 1}
+		
+		\begin{lstlisting}
+			row = make([]string, width*2+1)
+			row[0] = "|"
+			row[width*2] = "|"
+			row[width*2-1] = "_"
+
+			dsu := domain.NewDSU(width)
+		\end{lstlisting}
+		
+		Here we initialize a row and DSU. (width is twice bigger just for usability. We will go through odd indexes, so it makes no sense to algorithm itself)
+		
+		\paragraph{Step 2}
+		\begin{lstlisting}
+			rand.Seed(time.Now().UnixNano())
+			for i := 0; i < width-1; i++ {
+				row[2*i+1] = " "
+				if dsu.FindSet(i) == dsu.FindSet(i+1) {
+					row[2*i+2] = "|"
+				} else {
+					res := rand.Intn(10)
+					if res > 3 {
+						row[2*i+2] = " "
+						dsu.UnionSets(i, i+1)
+					} else {
+						row[2*i+2] = "|"
+					}
+				}
+			}
+		\end{lstlisting}
+		Here we go through cells and decide if we are adding a wall between them or not.
+		
+		\paragraph{Step 3}
+		\begin{lstlisting}
+			sz := map[int]int{}
+			for i := 0; i < width; i++ {
+				sz[dsu.FindSet(i)]++
+			}
+			masks := map[int]int64{}
+			for k, v := range sz {
+				maxBitmask := (int64(1) << v) - int64(1)
+				sz[k] = 0
+				masks[k] = rand.Int63n(maxBitmask) + 1
+			}
+			for i := 0; i < width; i++ {
+				cur := dsu.FindSet(i)
+
+				if (masks[cur] & (1 << sz[cur])) != 0 {
+					row[2*i+1] = " "
+				} else {
+					row[2*i+1] = "_"
+				}
+				sz[cur]++
+			}
+			
+			maze.Rows = append(maze.Rows, strings.Join(row, ""))
+		\end{lstlisting}
+		Here we count number of cells in each set and generating a number between 1 and $2^{cells}$
+		as a bitmask, after that we go through cells and adding a wall if bit in bitmask for this set is 0 for this position. As our number varies in $[1,2^{cells}]$ we will always have at least 1 way down from each set. At the end we are adding this row to the maze
+		
+		\paragraph{Step 4}
+		\begin{lstlisting}
+			newDsu := domain.NewDSU(width)
+
+			for i := 0; i < width-1; i++ {
+				if dsu.FindSet(i) == dsu.FindSet(i+1) {
+					if row[2*i+1] != "_" && row[2*i+3] != "_" {
+						newDsu.UnionSets(i, i+1)
+					}
+				}
+			}
+
+			dsu = newDsu
+		\end{lstlisting}
+		Reseting dsu to initals and keeping nodes together if they are in the same set
+		
+		\paragraph{Step 5}
+		\begin{lstlisting}
+			for k := 0; k < length-1; k++
+		\end{lstlisting}
+		Looping it
+		
+		\paragraph{Step 6}
+		\begin{lstlisting}
+		for i := 0; i < width-1; i++ {
+			row[2*i+1] = "_"
+			if dsu.FindSet(i) != dsu.FindSet(i+1) {
+				dsu.UnionSets(i, i+1)
+				row[2*i+2] = " "
+			}
+		}	
+		maze.Rows = append(maze.Rows, strings.Join(row, ""))
+		\end{lstlisting}
+		If two cells are in different sets, we are connecting them
+		
+	\subsection{Summing up}
+	We go through each row multiple times. It is not affecting our time complexity in terms of big O notation, so we just skipping it and consider we are doing it once and have $O(length)$. At each row we are using DSU for each cell, so it gives us $O(width*\alpha{}(width))$ per row, as we already noticed inverse Ackermann's function can be written out, because it is constant for all reasonable numbers. So we have $O(length*width))$, which is pretty good at this point.
 	
+\section{Multiplayer}
+TBD

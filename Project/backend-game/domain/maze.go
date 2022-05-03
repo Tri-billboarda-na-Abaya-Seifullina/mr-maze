@@ -26,7 +26,6 @@ type DSU struct {
 	Size   int
 	parent []int
 	rank   []int
-	used   []bool
 }
 
 func NewDSU(size int) *DSU {
@@ -34,7 +33,6 @@ func NewDSU(size int) *DSU {
 		Size:   size,
 		parent: make([]int, size),
 		rank:   make([]int, size),
-		used:   make([]bool, size),
 	}
 
 	for i := 0; i < size; i++ {
@@ -46,7 +44,6 @@ func NewDSU(size int) *DSU {
 func (d *DSU) MakeSet(v int) {
 	d.parent[v] = v
 	d.rank[v] = 0
-	d.used[v] = true
 }
 
 func (d *DSU) FindSet(v int) int {
@@ -54,7 +51,6 @@ func (d *DSU) FindSet(v int) int {
 		return v
 	}
 
-	d.used[d.parent[v]] = false
 	d.parent[v] = d.FindSet(d.parent[v])
 
 	return d.parent[v]
@@ -65,24 +61,12 @@ func (d *DSU) UnionSets(a, b int) {
 	b = d.FindSet(b)
 
 	if a != b {
-		if d.rank[a] > d.rank[b] {
+		if d.rank[a] < d.rank[b] {
 			a, b = b, a
 		}
-		d.used[d.parent[b]] = false
 		d.parent[b] = a
 		if d.rank[a] == d.rank[b] {
 			d.rank[a]++
 		}
 	}
-}
-
-func (d *DSU) GetFree() []int {
-	ret := []int{}
-	for i := 0; i < d.Size; i++ {
-		if !d.used[i] {
-			ret = append(ret, i)
-		}
-	}
-
-	return ret
 }

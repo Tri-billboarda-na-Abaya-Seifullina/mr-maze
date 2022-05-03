@@ -46,12 +46,16 @@
 \contentsline {section}{\numberline {3.1}B one}{17}{section.3.1}%
 \contentsline {section}{\numberline {3.2}B two}{17}{section.3.2}%
 \contentsline {section}{\numberline {3.3}B three}{17}{section.3.3}%
-\contentsline {chapter}{\numberline {4}CCCCC}{18}{chapter.4}%
-\contentsline {section}{\numberline {4.1}C one}{18}{section.4.1}%
-\contentsline {section}{\numberline {4.2}C two}{18}{section.4.2}%
-\contentsline {section}{\numberline {4.3}C three}{18}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Conclusion}{19}{chapter.5}%
-\contentsline {chapter}{\numberline {A}AppendixATitle}{20}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Theorem}{20}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Proof}{20}{section.A.2}%
-\contentsline {chapter}{\numberline {B}AppendixBTitle}{21}{appendix.B}%
+\contentsline {chapter}{\numberline {4}Design}{18}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Tools}{18}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Figma}{18}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}UX}{18}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Pages}{18}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Main page}{18}{subsection.4.3.1}%
+\contentsline {subsubsection}{Header}{18}{section*.24}%
+\contentsline {subsubsection}{Onboarding}{19}{section*.25}%
+\contentsline {subsubsection}{Starting game}{19}{section*.26}%
+\contentsline {subsubsection}{Footer}{19}{section*.27}%
+\contentsline {chapter}{\numberline {5}Conclusion}{20}{chapter.5}%
+\contentsline {chapter}{\numberline {A}AppendixATitle}{21}{appendix.A}%
+\contentsline {chapter}{\numberline {B}AppendixBTitle}{22}{appendix.B}%

@@ -1,9 +1,9 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.blg'
-[48] biber-darwin:340> INFO - === Tue May  3, 2022, 22:36:49
-[58] Biber.pm:418> INFO - Reading '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bcf'
-[123] Biber.pm:972> INFO - Found 0 citekeys in bib section 0
-[135] bbl.pm:654> INFO - Writing '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bbl' with encoding 'UTF-8'
-[135] bbl.pm:757> INFO - Output to /Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bbl
-[135] Biber.pm:130> WARN - The file '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bcf' does not contain any citations!
-[135] Biber.pm:132> INFO - WARNINGS: 1
+[57] biber-darwin:340> INFO - === Wed May  4, 2022, 00:17:06
+[70] Biber.pm:418> INFO - Reading '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bcf'
+[136] Biber.pm:972> INFO - Found 0 citekeys in bib section 0
+[170] bbl.pm:654> INFO - Writing '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bbl' with encoding 'UTF-8'
+[170] bbl.pm:757> INFO - Output to /Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bbl
+[170] Biber.pm:130> WARN - The file '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bcf' does not contain any citations!
+[170] Biber.pm:132> INFO - WARNINGS: 1

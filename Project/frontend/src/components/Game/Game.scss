@@ -1,0 +1,23 @@
+.game {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 84vh;
+    .players-board {
+        .players-board-player {
+            display: flex;
+            align-items: center;
+            .player-name {
+                color: #fff;
+            }
+            .player-color {
+                min-width: 20px;
+                min-height: 20px;
+                background-color: rgb(120, 232, 120);
+                margin-left: 10px;
+                border-radius: 50%;
+                filter: blur(5px);
+            }
+        }
+    }
+}

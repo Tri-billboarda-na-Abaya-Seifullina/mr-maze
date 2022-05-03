@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import "./Main.scss";
 
@@ -16,7 +17,9 @@ const Main = () => {
                     </p>
                     <div>
                         <button className="start">
-                            Start
+                            <Link to="/game">
+                                Start
+                            </Link>
                         </button>
                         <button className="join">
                             Join

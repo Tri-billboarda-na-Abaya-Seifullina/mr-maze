@@ -1,0 +1,21 @@
+.map {
+    position: relative;
+}
+
+.cell-row {
+    display: flex;
+}
+
+.player {
+    position: absolute;
+    min-width: 20px;
+    min-height: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    background-color: rgb(120, 232, 120);
+    border-radius: 50%;
+    transition: transform 0.3s linear;
+    left: 0;
+    top: 0;
+    filter: blur(5px);
+}

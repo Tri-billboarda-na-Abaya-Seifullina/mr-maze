@@ -34,6 +34,10 @@ $main-bg-color: #1F1D2B;
             }
             .start {
                 background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                }
             }
             .join {
                 border: 2px solid #D7D7D7;
@@ -71,6 +75,29 @@ $main-bg-color: #1F1D2B;
                 }
             }
         }
+    }
+}
+
+.custom-button {
+    border: none;
+    padding: 2% 15%;
+    margin-right: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    background: none;
+    border-radius: 0.5em;
+    color: #fff;
+    cursor: pointer;
+    a {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.87);
+    }
+    &.primary {
+        background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
+    }
+    &.secondary {
+        border: 2px solid rgba(0, 0, 0, 0.87);
+        color: rgba(0, 0, 0, 0.87);
     }
 }
 

@@ -55,7 +55,7 @@ func (s *service) GenerateMaze(length, width int) (*domain.Map, error) {
 		for i := 0; i < width; i++ {
 			cur := dsu.FindSet(i)
 			if open[cur] == sz[cur] {
-				row[2*i+1] = "_"
+				row[2*i+1] = " "
 			} else {
 				res := rand.Intn(10)
 				if res > 3 {

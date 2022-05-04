@@ -10,10 +10,10 @@ const Main = () => {
             <div className="content">
                 <div className="left">
                     <h1>
-                        In aenean posuere lorem risus nec. 
+                        Multiplayer Mr. Maze  game. 
                     </h1>
                     <p>
-                        In aenean posuere lorem risus nec. Tempor tincidunt aenean purus purus vestibulum nibh mi venenatis
+                        Play with your friends and compete in getting out of the maze.
                     </p>
                     <div>
                         <button className="start">

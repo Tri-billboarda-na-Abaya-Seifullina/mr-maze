@@ -59,6 +59,7 @@ $main-bg-color: #1F1D2B;
                 min-height: 10vw;
                 border-radius: 50%;
                 filter: blur(4vw);
+                -webkit-filter: blur(4vw);
                 &-blue {
                     left: 50%;
                     top: 50%;

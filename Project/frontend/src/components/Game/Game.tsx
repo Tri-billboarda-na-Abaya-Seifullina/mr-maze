@@ -1,12 +1,11 @@
 import React, { SyntheticEvent, useCallback, useEffect, useState } from "react";
 import MovingAbility from "../../interfaces/MovingAbility";
 import Position from "../../interfaces/Position";
-import defaultMap from "../../utils/map";
+import map from "../../utils/map";
 import { Link, useNavigate } from "react-router-dom";
 import { useEventListener } from "../../utils/useEventListener";
 import Map from "../Map/Map";
 import "./Game.scss";
-import map from "../../utils/map";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
@@ -38,13 +37,13 @@ const Game = () => {
             let {x,y} = playerPosition;
             let newX = x;
             let newY = y;
-            if (key === "ArrowUp" && defaultMap[x][y].up) {
+            if (key === "ArrowUp" && map[x][y].up) {
                 newX--;
-            } else if (key === "ArrowDown"  && defaultMap[x][y].down) {
+            } else if (key === "ArrowDown"  && map[x][y].down) {
                 newX++;
-            } else if (key === "ArrowLeft"  && defaultMap[x][y].left) {
+            } else if (key === "ArrowLeft"  && map[x][y].left) {
                 newY--;
-            } else if (key === "ArrowRight" && defaultMap[x][y].right) {
+            } else if (key === "ArrowRight" && map[x][y].right) {
                 newY++;
             }
             if (newX == map.length - 1 && newY === map[0].length - 1) {
@@ -68,7 +67,7 @@ const Game = () => {
                     </span>
                 </div>
             </div>
-            <Map map={defaultMap} playerPosition={playerPosition}/>
+            <Map map={map} playerPosition={playerPosition}/>
             <Dialog open={showWinnerModal} fullWidth>
                 <DialogTitle>
                     Congratulations!

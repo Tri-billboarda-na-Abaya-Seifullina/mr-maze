@@ -50,6 +50,7 @@ func (s *service) GenerateMaze(length, width int) (*domain.Map, error) {
 		open := map[int]int{}
 		for k, v := range sz {
 			open[k] = rand.Intn(v)
+			sz[k] = 0
 		}
 		for i := 0; i < width; i++ {
 			cur := dsu.FindSet(i)

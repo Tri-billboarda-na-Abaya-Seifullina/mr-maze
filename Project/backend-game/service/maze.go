@@ -26,7 +26,7 @@ func (s *service) GenerateMaze(length, width int) (*domain.Map, error) {
 
 	dsu := domain.NewDSU(width)
 
-	for k := 0; k < length-1; k++ {
+	for k := 0; k < length; k++ {
 		rand.Seed(time.Now().UnixNano())
 		for i := 0; i < width-1; i++ {
 			row[2*i+1] = " "
@@ -68,51 +68,52 @@ func (s *service) GenerateMaze(length, width int) (*domain.Map, error) {
 			sz[cur]++
 		}
 
-		maze.Rows = append(maze.Rows, strings.Join(row, ""))
+		if k != length-1 {
+			maze.Rows = append(maze.Rows, strings.Join(row, ""))
 
-		newDsu := domain.NewDSU(width)
+			newDsu := domain.NewDSU(width)
 
-		sets := map[int]int{}
+			sets := map[int]int{}
 
-		for i := 0; i < width; i++ {
-			if row[2*i+1] != "_" {
-				val, ok := sets[dsu.FindSet(i)]
-				if !ok {
-					sets[dsu.FindSet(i)] = i
-				} else {
-					newDsu.UnionSets(val, i)
+			for i := 0; i < width; i++ {
+				if row[2*i+1] != "_" {
+					val, ok := sets[dsu.FindSet(i)]
+					if !ok {
+						sets[dsu.FindSet(i)] = i
+					} else {
+						newDsu.UnionSets(val, i)
+					}
 				}
 			}
-		}
 
-		dsu = newDsu
+			dsu = newDsu
 
-		for i := 0; i < width*2+1; i++ {
-			if row[i] == "_" {
-				row[i] = " "
-			}
-			if row[i] == "|" {
-				if k == length-2 {
-					continue
+			for i := 0; i < width*2+1; i++ {
+				if row[i] == "_" {
+					row[i] = " "
 				}
-				row[i] = " "
+				if row[i] == "|" {
+					if k == length-2 {
+						continue
+					}
+					row[i] = " "
+				}
 			}
+
+			row[0] = "|"
+			row[width*2] = "|"
+			row[width*2-1] = "_"
+		} else {
+			for i := 0; i < width-1; i++ {
+				row[2*i+1] = "_"
+				if dsu.FindSet(i) != dsu.FindSet(i+1) {
+					dsu.UnionSets(i, i+1)
+					row[2*i+2] = " "
+				}
+			}
+			maze.Rows = append(maze.Rows, strings.Join(row, ""))
 		}
-
-		row[0] = "|"
-		row[width*2] = "|"
-		row[width*2-1] = "_"
-
 	}
-
-	for i := 0; i < width-1; i++ {
-		row[2*i+1] = "_"
-		if dsu.FindSet(i) != dsu.FindSet(i+1) {
-			dsu.UnionSets(i, i+1)
-			row[2*i+2] = " "
-		}
-	}
-	maze.Rows = append(maze.Rows, strings.Join(row, ""))
 
 	log.WithFields(log.Fields{
 		"method": domain.GENERATING,

@@ -38,7 +38,9 @@ func MakeHTTPHandler(s service.Service) http.Handler {
 	r.Handle("/generate", generateMaze).Methods("POST")
 	r.Handle("/get", getMaze).Methods("GET")
 
-	return handlers.CORS()(r)
+	return handlers.CORS(handlers.AllowedHeaders(
+		[]string{"Accept", "Accept-Language", "Content-Type", "Content-Language", "Origin"}),
+		handlers.AllowedOrigins([]string{"*"}))(r)
 }
 
 type errorWrapper struct {

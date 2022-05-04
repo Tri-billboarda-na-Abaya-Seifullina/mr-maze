@@ -1,15 +1,40 @@
-\chapter{BBBBB}\label{ch:B}
+\chapter{Frontend}\label{ch:B}
 
-\section{B one}
-Gennady Gennadyevich Golovkin is a legendary middle weight boxer (see Figure \ref{fig:ggg})
+\section{Stack of technologies}
+    \subsection{Typescript}
+    JavaScript is a dynamic typing language, which means that type of the variable can be changed and will be defined by assigned value. Is it always suitable? Surely, no. Sometimes we need to know which exactly type is a variable, cause our application could crash, if we don't receive proper field or field format. Typescript can help us to prevent this type of issues, cause it's a static typing language. So we can't assign value with type B to the variable once we've assigned value with type A to it. Also Typescript has such features like the Generic types, Declaration files etc.
+    \subsection{React}
+    React is a JavaScript library. It's a one of the most popular JavaScript frameworks(libraries) for building user interfaces. It's free and open-source, which means that everyone can contribute to it. Developing in React based on UI components. React code is easy to understanding, because of JSX(JavaScript Syntax Extension). JSX allows you to assign html elements to the variables and write JavaScript code inside of html code. React has a Virtual DOM, which provides fast changes in DOM tree with reconciliation.
+    Also notable features of React: declarative, lifecycle methods, hooks, state and props.
+    
+    \subsection{Redux}
+    Redux is a state management tool for React based on flux architecture. 
+    \subsection{Material-UI}
+    Material UI is a tool which provides scalable UI components for React.
+    \subsection{Axios}
+    Axios is a tool for easily making a request for server.
+    \subsection{react-router-dom}
+    react-router-dom is a library for configure pages routing in react app.
+    \subsection{SCSS}
+    SCSS is a tool which help to work with styles easier.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.7]{ggg}
-    \caption{Triple G}
-    \label{fig:ggg}
-\end{figure}
+\section{Maze game implementation}
+    \subsection{Throttling}
+    Simple example of throttle function:
+    \begin{lstlisting}
+        export function throttle(callback, interval) {
+            let enableCall = true;
+          
+            return function(...args) {
+              if (!enableCall) return;
+          
+              enableCall = false;
+              console.log(args)
+              callback.apply(this, args);
+              setTimeout(() => enableCall = true, interval);
+            }
+        }
+		\end{lstlisting}
 
-\section{B two}
-
-\section{B three}
+\section{Multiplayer}
+TBD

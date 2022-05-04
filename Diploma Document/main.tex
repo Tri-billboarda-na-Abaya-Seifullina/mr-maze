@@ -5,6 +5,7 @@
 \usepackage[utf8]{inputenc} 
 \usepackage[russian,english]{babel}
 \usepackage{csquotes}
+\usepackage{graphicx}
 
 % usual packages
 \usepackage[left=30mm, right=10mm, top=20mm, bottom=20mm]{geometry}
@@ -20,14 +21,37 @@
 \usepackage{blindtext}
 
 % the following three definitions are to be changed by student
-\def\myauthor{Gennady Golovkin} % author
-\def\mycoach{Abel Sanchez} % coach, adviser etc.
-\def\mytitle{Knockoutization of Arrogant Opponents by Nearest Neighbour Punching Algorithm} % title
+\def\myauthor{Nurgaliyev Adilkhan, Bissen Aizat, Manap Abu Said} % author
+\def\mycoach{Ardak Shalkarbayuly} % coach, adviser etc.
+\def\mytitle{Mr.Maze game} % title
 %\def\mydegree{Bachelor in Computer Systems and Software}
 %\def\mydegreecode{5B070400}
 \def\mydegree{Bachelor in Information Systems}
 \def\mydegreecode{5B070300}
 
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Go,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 % preamble ends here
 
 \begin{document}
@@ -39,6 +63,7 @@
     \input{abstract_english}
     \input{abstract_kazakh}
     \input{abstract_russian}
+    
     \tableofcontents
     
     % edit your chapters

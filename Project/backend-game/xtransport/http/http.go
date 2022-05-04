@@ -7,6 +7,7 @@ import (
 	"github.com/Abunyawa/back_game/service"
 	"github.com/go-kit/kit/endpoint"
 	httptransport "github.com/go-kit/kit/transport/http"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"net/http"
 )
@@ -37,7 +38,7 @@ func MakeHTTPHandler(s service.Service) http.Handler {
 	r.Handle("/generate", generateMaze).Methods("POST")
 	r.Handle("/get", getMaze).Methods("GET")
 
-	return r
+	return handlers.CORS()(r)
 }
 
 type errorWrapper struct {

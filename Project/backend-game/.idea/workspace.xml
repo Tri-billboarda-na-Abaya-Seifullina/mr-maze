@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2df5b9e1-4ec8-495d-95f2-5bed3f3e3ebc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Diploma Document/chapterA.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../../Diploma Document/chapterA.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.blg" beforeDir="false" afterPath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.blg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.out" beforeDir="false" afterPath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.toc" beforeDir="false" afterPath="$PROJECT_DIR$/../../Diploma Document/.texpadtmp/main.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Diploma Document/introduction.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../../Diploma Document/introduction.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Diploma Document/main.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../Diploma Document/main.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/maze.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/maze.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xtransport/http/http.go" beforeDir="false" afterPath="$PROJECT_DIR$/xtransport/http/http.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

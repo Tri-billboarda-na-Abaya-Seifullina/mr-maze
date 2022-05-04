@@ -72,10 +72,12 @@ func (s *service) GenerateMaze(length, width int) (*domain.Map, error) {
 
 		newDsu := domain.NewDSU(width)
 
-		for i := 0; i < width-1; i++ {
-			if dsu.FindSet(i) == dsu.FindSet(i+1) {
-				if row[2*i+1] != "_" && row[2*i+3] != "_" {
-					newDsu.UnionSets(i, i+1)
+		for i := 0; i < width; i++ {
+			for j := 0; j < i; j++ {
+				if dsu.FindSet(i) == dsu.FindSet(j) {
+					if row[2*i+1] != "_" && row[2*j+1] != "_" {
+						newDsu.UnionSets(i, j)
+					}
 				}
 			}
 		}

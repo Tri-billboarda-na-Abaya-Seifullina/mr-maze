@@ -8,6 +8,7 @@ import (
 
 	"github.com/Abunyawa/back_auth/endpoints"
 	"github.com/Abunyawa/back_auth/service"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 
 	httptransport "github.com/go-kit/kit/transport/http"
@@ -55,7 +56,7 @@ func MakeHTTPHandler(s service.Service) http.Handler {
 	r.Handle("/auth", authUser).Methods("POST")
 	r.Handle("/refresh", refreshToken).Methods("POST")
 
-	return r
+	return handlers.CORS()(r)
 }
 
 type errorWrapper struct {

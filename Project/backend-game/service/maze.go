@@ -58,9 +58,9 @@ func (s *service) GenerateMaze(length, width int) (*domain.Map, error) {
 			} else {
 				res := rand.Intn(10)
 				if res > 3 {
-					row[2*i+2] = "_"
+					row[2*i+1] = "_"
 				} else {
-					row[2*i+2] = " "
+					row[2*i+1] = " "
 				}
 			}
 

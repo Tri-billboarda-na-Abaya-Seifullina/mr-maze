@@ -47,20 +47,23 @@ func (s *service) GenerateMaze(length, width int) (*domain.Map, error) {
 		for i := 0; i < width; i++ {
 			sz[dsu.FindSet(i)]++
 		}
-		masks := map[int]int64{}
+		open := map[int]int{}
 		for k, v := range sz {
-			maxBitmask := (int64(1) << v) - int64(1)
-			sz[k] = 0
-			masks[k] = rand.Int63n(maxBitmask) + 1
+			open[k] = rand.Intn(v)
 		}
 		for i := 0; i < width; i++ {
 			cur := dsu.FindSet(i)
-
-			if (masks[cur] & (1 << sz[cur])) != 0 {
-				row[2*i+1] = " "
-			} else {
+			if open[cur] == sz[cur] {
 				row[2*i+1] = "_"
+			} else {
+				res := rand.Intn(10)
+				if res > 3 {
+					row[2*i+1] = "_"
+				} else {
+					row[2*i+1] = " "
+				}
 			}
+
 			sz[cur]++
 		}
 

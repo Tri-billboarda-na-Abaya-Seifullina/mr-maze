@@ -75,11 +75,13 @@ func (s *service) GenerateMaze(length, width int) (*domain.Map, error) {
 		sets := map[int]int{}
 
 		for i := 0; i < width; i++ {
-			val, ok := sets[dsu.FindSet(i)]
-			if !ok {
-				sets[dsu.FindSet(i)] = i
-			} else {
-				newDsu.UnionSets(val, i)
+			if row[2*i+1] != "_" {
+				val, ok := sets[dsu.FindSet(i)]
+				if !ok {
+					sets[dsu.FindSet(i)] = i
+				} else {
+					newDsu.UnionSets(val, i)
+				}
 			}
 		}
 

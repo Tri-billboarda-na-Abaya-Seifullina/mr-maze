@@ -163,7 +163,7 @@ Our backend designed in microservice architecture. In this section we will descr
 		Time complexity analysis shows that rank heuristic optimization and path compressing gives us $O(\alpha{}(n))$ per query. $\alpha(n)$ is an Inverse Ackermann function and it is not exceeding 4 for $n<=10^{600}$, that why we can consider it as constant.
 		
 		\subsection{Eller's algorithm}
-		This algorithm for maze generating works row by row and it is crazy, because on output we will have perfect maze. Each point can be reached and there is exactly one way between them.
+		This algorithm for maze generating works row by row and it is crazy, because on output we will have perfect maze. Each point can be reached with exactly one unique path.
 		Algorithm:
 		
 		\begin{enumerate}
@@ -214,36 +214,43 @@ Our backend designed in microservice architecture. In this section we will descr
 			for i := 0; i < width; i++ {
 				sz[dsu.FindSet(i)]++
 			}
-			masks := map[int]int64{}
+			open := map[int]int{}
 			for k, v := range sz {
-				maxBitmask := (int64(1) << v) - int64(1)
-				sz[k] = 0
-				masks[k] = rand.Int63n(maxBitmask) + 1
+				open[k] = rand.Intn(v)
 			}
 			for i := 0; i < width; i++ {
 				cur := dsu.FindSet(i)
-
-				if (masks[cur] & (1 << sz[cur])) != 0 {
-					row[2*i+1] = " "
-				} else {
+				if open[cur] == sz[cur] {
 					row[2*i+1] = "_"
+				} else {
+					res := rand.Intn(10)
+					if res > 3 {
+						row[2*i+1] = "_"
+					} else {
+						row[2*i+1] = " "
+					}
 				}
+
 				sz[cur]++
 			}
-			
+	
 			maze.Rows = append(maze.Rows, strings.Join(row, ""))
 		\end{lstlisting}
-		Here we count number of cells in each set and generating a number between 1 and $2^{cells}$
-		as a bitmask, after that we go through cells and adding a wall if bit in bitmask for this set is 0 for this position. As our number varies in $[1,2^{cells}]$ we will always have at least 1 way down from each set. At the end we are adding this row to the maze
+		Here we count number of cells in each set and generating a number between 0 and number of cells, so we choose an index at which wall downwards will not appear, after that we go through cells and adding a wall with 0.6 chance
 		
 		\paragraph{Step 4}
 		\begin{lstlisting}
 			newDsu := domain.NewDSU(width)
 
-			for i := 0; i < width-1; i++ {
-				if dsu.FindSet(i) == dsu.FindSet(i+1) {
-					if row[2*i+1] != "_" && row[2*i+3] != "_" {
-						newDsu.UnionSets(i, i+1)
+			sets := map[int]int{}
+
+			for i := 0; i < width; i++ {
+				if row[2*i+1] != "_" {
+					val, ok := sets[dsu.FindSet(i)]
+					if !ok {
+						sets[dsu.FindSet(i)] = i
+					} else {
+						newDsu.UnionSets(val, i)
 					}
 				}
 			}
@@ -254,7 +261,7 @@ Our backend designed in microservice architecture. In this section we will descr
 		
 		\paragraph{Step 5}
 		\begin{lstlisting}
-			for k := 0; k < length-1; k++
+			for k := 0; k < length; k++
 		\end{lstlisting}
 		Looping it
 		
@@ -269,10 +276,10 @@ Our backend designed in microservice architecture. In this section we will descr
 		}	
 		maze.Rows = append(maze.Rows, strings.Join(row, ""))
 		\end{lstlisting}
-		If two cells are in different sets, we are connecting them
+		For the last row, if two cells are in different sets, we are connecting them
 		
 	\subsection{Summing up}
-	We go through each row multiple times. It is not affecting our time complexity in terms of big O notation, so we just skipping it and consider we are doing it once and have $O(length)$. At each row we are using DSU for each cell, so it gives us $O(width*\alpha{}(width))$ per row, as we already noticed inverse Ackermann's function can be written out, because it is constant for all reasonable numbers. So we have $O(length*width))$, which is pretty good at this point.
+	We go through each row multiple times and using maps. It is not affecting our time complexity in terms of big O notation and Golang's map implementation works with constant time, so we just skipping it and consider we are doing it once and have $O(length)$. At each row we are using DSU for each cell, so it gives us $O(width*\alpha{}(width))$ per row, as we already noticed inverse Ackermann's function can be written out, because it is constant for all reasonable numbers. So we have $O(length*width))$, which is pretty good at this point.
 	
 \section{Multiplayer}
 TBD

@@ -42,20 +42,28 @@
 \contentsline {paragraph}{Step 6}{15}{lstlisting.2.-8}%
 \contentsline {subsection}{\numberline {2.4.3}Summing up}{16}{subsection.2.4.3}%
 \contentsline {section}{\numberline {2.5}Multiplayer}{16}{section.2.5}%
-\contentsline {chapter}{\numberline {3}BBBBB}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}B one}{17}{section.3.1}%
-\contentsline {section}{\numberline {3.2}B two}{17}{section.3.2}%
-\contentsline {section}{\numberline {3.3}B three}{17}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Design}{18}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Tools}{18}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Figma}{18}{subsection.4.1.1}%
-\contentsline {section}{\numberline {4.2}UX}{18}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Pages}{18}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Main page}{18}{subsection.4.3.1}%
-\contentsline {subsubsection}{Header}{18}{section*.24}%
-\contentsline {subsubsection}{Onboarding}{19}{section*.25}%
-\contentsline {subsubsection}{Starting game}{19}{section*.26}%
-\contentsline {subsubsection}{Footer}{19}{section*.27}%
-\contentsline {chapter}{\numberline {5}Conclusion}{20}{chapter.5}%
-\contentsline {chapter}{\numberline {A}AppendixATitle}{21}{appendix.A}%
-\contentsline {chapter}{\numberline {B}AppendixBTitle}{22}{appendix.B}%
+\contentsline {chapter}{\numberline {3}Frontend}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Stack of technologies}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Typescript}{17}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}React}{17}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Redux}{17}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Material-UI}{17}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}Axios}{18}{subsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.1.6}react-router-dom}{18}{subsection.3.1.6}%
+\contentsline {subsection}{\numberline {3.1.7}SCSS}{18}{subsection.3.1.7}%
+\contentsline {section}{\numberline {3.2}Maze game implementation}{18}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Throttling}{18}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}Multiplayer}{18}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Design}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Tools}{19}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Figma}{19}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}UX}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Pages}{19}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Main page}{19}{subsection.4.3.1}%
+\contentsline {subsubsection}{Header}{19}{section*.24}%
+\contentsline {subsubsection}{Onboarding}{20}{section*.25}%
+\contentsline {subsubsection}{Starting game}{20}{section*.26}%
+\contentsline {subsubsection}{Footer}{20}{section*.27}%
+\contentsline {chapter}{\numberline {5}Conclusion}{21}{chapter.5}%
+\contentsline {chapter}{\numberline {A}AppendixATitle}{22}{appendix.A}%
+\contentsline {chapter}{\numberline {B}AppendixBTitle}{23}{appendix.B}%

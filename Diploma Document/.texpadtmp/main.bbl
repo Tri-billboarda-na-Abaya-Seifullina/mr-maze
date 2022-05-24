@@ -16,5 +16,98 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Eller}{online}{}
+      \name{author}{1}{}{%
+        {{hash=8ded4583ad04efd19ba336044a7d2749}{%
+           family={Buck},
+           familyi={B\bibinitperiod},
+           given={Jamis},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{8ded4583ad04efd19ba336044a7d2749}
+      \strng{fullhash}{8ded4583ad04efd19ba336044a7d2749}
+      \strng{bibnamehash}{8ded4583ad04efd19ba336044a7d2749}
+      \strng{authorbibnamehash}{8ded4583ad04efd19ba336044a7d2749}
+      \strng{authornamehash}{8ded4583ad04efd19ba336044a7d2749}
+      \strng{authorfullhash}{8ded4583ad04efd19ba336044a7d2749}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Maze Generation: Eller's Algorithm}
+      \verb{urlraw}
+      \verb https://weblog.jamisbuck.org/2010/12/29/maze-generation-eller-s-algorithm
+      \endverb
+      \verb{url}
+      \verb https://weblog.jamisbuck.org/2010/12/29/maze-generation-eller-s-algorithm
+      \endverb
+    \endentry
+    \entry{JWT}{online}{}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labeltitlesource}{title}
+      \field{title}{JWT}
+      \verb{urlraw}
+      \verb https://jwt.io
+      \endverb
+      \verb{url}
+      \verb https://jwt.io
+      \endverb
+    \endentry
+    \entry{PostgreSQL}{online}{}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labeltitlesource}{title}
+      \field{title}{PostgreSQL}
+      \verb{urlraw}
+      \verb https://www.postgresql.org
+      \endverb
+      \verb{url}
+      \verb https://www.postgresql.org
+      \endverb
+    \endentry
+    \entry{Redis}{online}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labeltitlesource}{title}
+      \field{title}{Redis}
+      \verb{urlraw}
+      \verb https://redis.io
+      \endverb
+      \verb{url}
+      \verb https://redis.io
+      \endverb
+    \endentry
+    \entry{Union-Find}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e1a92f1c9f96cee95b961648633c39f3}{%
+           family={Wayne},
+           familyi={W\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{e1a92f1c9f96cee95b961648633c39f3}
+      \strng{fullhash}{e1a92f1c9f96cee95b961648633c39f3}
+      \strng{bibnamehash}{e1a92f1c9f96cee95b961648633c39f3}
+      \strng{authorbibnamehash}{e1a92f1c9f96cee95b961648633c39f3}
+      \strng{authornamehash}{e1a92f1c9f96cee95b961648633c39f3}
+      \strng{authorfullhash}{e1a92f1c9f96cee95b961648633c39f3}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Union-Find}
+      \verb{urlraw}
+      \verb https://www.cs.princeton.edu/courses/archive/spring13/cos423/lectures/UnionFind.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.cs.princeton.edu/courses/archive/spring13/cos423/lectures/UnionFind.pdf
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

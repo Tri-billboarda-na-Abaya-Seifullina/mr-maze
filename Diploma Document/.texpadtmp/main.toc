@@ -42,6 +42,7 @@
 \contentsline {paragraph}{Step 6}{15}{lstlisting.2.-8}%
 \contentsline {subsection}{\numberline {2.4.3}Summing up}{16}{subsection.2.4.3}%
 \contentsline {section}{\numberline {2.5}Multiplayer}{16}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Minds on implementation}{16}{subsection.2.5.1}%
 \contentsline {chapter}{\numberline {3}Frontend}{17}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Stack of technologies}{17}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Typescript}{17}{subsection.3.1.1}%
@@ -65,5 +66,10 @@
 \contentsline {subsubsection}{Starting game}{20}{section*.26}%
 \contentsline {subsubsection}{Footer}{20}{section*.27}%
 \contentsline {chapter}{\numberline {5}Conclusion}{21}{chapter.5}%
-\contentsline {chapter}{\numberline {A}AppendixATitle}{22}{appendix.A}%
-\contentsline {chapter}{\numberline {B}AppendixBTitle}{23}{appendix.B}%
+\contentsline {section}{\numberline {5.1}Idea}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Implementation}{21}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Design}{21}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Backend}{21}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Frontend}{21}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Problems}{22}{section.5.3}%
+\contentsline {chapter}{References}{23}{chapter*.28}%

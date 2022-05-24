@@ -1,9 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.blg'
-[52] biber-darwin:340> INFO - === Wed May  4, 2022, 09:20:25
-[64] Biber.pm:418> INFO - Reading '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bcf'
-[129] Biber.pm:972> INFO - Found 0 citekeys in bib section 0
-[140] bbl.pm:654> INFO - Writing '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bbl' with encoding 'UTF-8'
-[140] bbl.pm:757> INFO - Output to /Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bbl
-[140] Biber.pm:130> WARN - The file '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bcf' does not contain any citations!
-[140] Biber.pm:132> INFO - WARNINGS: 1
+[48] biber-darwin:340> INFO - === Tue May 24, 2022, 15:47:34
+[58] Biber.pm:418> INFO - Reading '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bcf'
+[123] Biber.pm:972> INFO - Found 5 citekeys in bib section 0
+[134] Biber.pm:4383> INFO - Processing section 0
+[141] Biber.pm:4574> INFO - Looking for bibtex file '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/bibliography.bib' for section 0
+[142] bibtex.pm:1713> INFO - LaTeX decoding ...
+[146] bibtex.pm:1518> INFO - Found BibTeX data source '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/bibliography.bib'
+[159] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[159] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[159] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[159] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[164] bbl.pm:654> INFO - Writing '/Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bbl' with encoding 'UTF-8'
+[165] bbl.pm:757> INFO - Output to /Users/abunyawa/Desktop/diploma/diploma-project-3-billboarda-na-abaya-seifullina/Diploma Document/.texpadtmp/main.bbl

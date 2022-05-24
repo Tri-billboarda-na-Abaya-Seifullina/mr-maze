@@ -17,7 +17,7 @@ Our backend designed in microservice architecture. In this section we will descr
 		When we refactor microservices and change data representation or communication protocols, we should be ready for other services to be unable to communicate with current one
 \section{Authorization}
 	\subsection{JWT}
-	In project we are using JWT (JSON Web Token). Token is divided on three parts by dot.
+	In project we are using JWT (JSON Web Token \cite{JWT}). Token is divided on three parts by dot.
 	\begin{itemize}
 		\item Header
 		\item Payload
@@ -78,7 +78,7 @@ Our backend designed in microservice architecture. In this section we will descr
 		
 	
 \section{Database}
-	For our project we chose Postgres database because we are familiar with it, also it is open source, that's why we can use it for free.
+	For our project we chose Postgres \cite{PostgreSQL} database because we are familiar with it, also it is open source, that's why we can use it for free.
 	
 	SQL databases provide fast data access and data modification. We are not going to delete often or change table structure, so there is no need to use collection based databases like Mongo.
 	
@@ -160,10 +160,10 @@ Our backend designed in microservice architecture. In this section we will descr
 		\end{itemize}
 		
 		\subsubsection{Time complexity}
-		Time complexity analysis shows that rank heuristic optimization and path compressing gives us $O(\alpha{}(n))$ per query. $\alpha(n)$ is an Inverse Ackermann function and it is not exceeding 4 for $n<=10^{600}$, that why we can consider it as constant.
+		Time complexity analysis shows that rank heuristic optimization and path compressing gives us $O(\alpha{}(n))$ per query. $\alpha(n)$ is an Inverse Ackermann function and it is not exceeding 4 for $n<=10^{600}$, that why we can consider it as constant. For any additional information it is reasonable to check out Princeton lecture on DSU \cite{Union-Find}
 		
 		\subsection{Eller's algorithm}
-		This algorithm for maze generating works row by row and it is crazy, because on output we will have perfect maze. Each point can be reached with exactly one unique path.
+		This algorithm \cite{Eller} for maze generating works row by row and it is crazy, because on output we will have perfect maze. Each point can be reached with exactly one unique path.
 		Algorithm:
 		
 		\begin{enumerate}
@@ -282,4 +282,6 @@ Our backend designed in microservice architecture. In this section we will descr
 	We go through each row multiple times and using maps. It is not affecting our time complexity in terms of big O notation and Golang's map implementation works with constant time, so we just skipping it and consider we are doing it once and have $O(length)$. At each row we are using DSU for each cell, so it gives us $O(width*\alpha{}(width))$ per row, as we already noticed inverse Ackermann's function can be written out, because it is constant for all reasonable numbers. So we have $O(length*width))$, which is pretty good at this point.
 	
 \section{Multiplayer}
-TBD
+	At this point we going to have only local multiplayer, but our project stands to be scalable and expandable, so in the future, with the relevant resources it won't be hard to add multiplayer games through the internet.
+	\subsection{Minds on implementation}
+		For sure, move tracking should be fast enough on both sides, on writing and reading. Such database as Redis \cite{Redis} could help us. It is a NoSQL key-value database and most important thing, it has amazing performance, so it is a good choice for us. Also, we should be able, to send information to the client as soon as possible, so it will be reasonable to use websockets, to keep connection with user client and send information on player's position update.

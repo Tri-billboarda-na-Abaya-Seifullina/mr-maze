@@ -9,6 +9,12 @@
     
     \subsection{Redux}
     Redux is a state management tool for React based on flux architecture. 
+    \\\\Redux flow:
+    \\1. UI (User Interface)
+    \\2. Actions
+    \\3. Reducer
+    \\4. Store
+    \\5. State
     \subsection{Material-UI}
     Material UI is a tool which provides scalable UI components for React.
     \subsection{Axios}
@@ -20,7 +26,8 @@
 
 \section{Maze game implementation}
     \subsection{Throttling}
-    Simple example of throttle function:
+    To throttle a function means to ensure that the function is called at most once in a specified time period (for instance, once every 10 seconds). This means throttling will prevent a function from running if it has run “recently”. Throttling also ensures a function is run regularly at a fixed rate.
+    \\\\Simple example of throttle function:
     \begin{lstlisting}
         export function throttle(callback, interval) {
             let enableCall = true;
@@ -36,5 +43,14 @@
         }
 		\end{lstlisting}
 
-\section{Multiplayer}
-TBD
+
+    \begin{figure}
+      \includegraphics[width=0.4\linewidth]{structure.png}
+      \caption{The project structure}
+      \label{fig:structure}
+    \end{figure}
+    \begin{figure}
+      \includegraphics[width=\linewidth]{game-page.png}
+      \caption{GamePage component}
+      \label{fig:game-page}
+    \end{figure}
